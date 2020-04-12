@@ -16,11 +16,6 @@ api=Api(app)
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///data.db'
 jwt=JWT(app,authenticate,identity)
 
-
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 api.add_resource(Item,'/item/<string:name>')
 api.add_resource(Itemlist,'/items')
 api.add_resource(UserRegister,'/register')
